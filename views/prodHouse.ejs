@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Production House</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<%active0 = ""%>
+<%active1 = "active"%>
+<%active2 = ""%>
+<%active3 = ""%>
+<%-include('partial/navbar')%>
+<body style="margin-left: 40px;">
+
+<h1>Production Houses</h1>
+
+<table style="width:80%" class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th>Name</th>
+      <th>Headquarters</th>
+    </tr>
+    </thead>
+    <%for (let i=0; i<data.length; i++){ %>
+    <tr>
+      <td><%=data[i].name_prodHouse %></td>
+      <td><%=data[i].headquarters %></td>
+    </tr>
+    <%}%>
+
+  </table> 
+
+</body>
+</html> 

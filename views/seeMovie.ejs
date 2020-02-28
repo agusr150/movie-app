@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>see Movie</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<%active0 = ""%>
+<%active1 = ""%>
+<%active2 = ""%>
+<%active3 = "active"%>
+<%-include('partial/navbar')%>
+<body style="margin-left: 40px;">
+
+<h1><%=actor.getName()%></h1>
+
+<table style="width:80%" class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th>Movie</th>
+      <th>Released Year</th>
+      <th>Age when movie released</th>
+      <th>Role</th>
+    </tr>
+    </thead>
+    <%if(movie.length===0){%>
+        <td>no action yet</td>
+        <td>no action yet</td>
+    <%} else {%>
+        <%for (let i=0; i<movie.length; i++){ %>
+            <tr>
+              <td><%=movie[i].name %></td>
+              <td><%=movie[i].released_year%></td>
+              <td><%=age[i]%></td>
+              <%let castFilm = movie[i].CastFilm%>
+              <td><%=castFilm.role%></td>      
+            </tr>
+        <%}%>     
+    <%}%>
+
+  </table> 
+
+</body>
+</html> 

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add cast</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<%active0 = ""%>
+<%active1 = ""%>
+<%active2 = ""%>
+<%active3 = "active"%>
+<%-include('partial/navbar')%>
+
+
+<body style="margin-left: 40px;">
+    <form action="/casts/edit/<%=data.id%>" method="POST">
+        <label for="fname">First Name:</label><br>
+        <input type="text" id="fname" name="fname" value="<%=data.first_name%>"><br>
+        <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname" name="lname" value="<%=data.last_name%>"><br>
+        <label for="byear">Birth Year:</label><br>
+        <input type="text" id="byear" name="byear" value="<%=data.birth_year%>"><br>
+        <label for="pnumber">Phone Number:</label><br>
+        <input type="text" id="pnumber" name="pnumber" value="<%=data.phone_number%>"><br>
+
+        <label for="gender">Genre:</label><br>
+        <%let a =''%>
+        <%let b =''%>
+        <%if(data.gender === 'female'){%>
+        <%    a = 'checked="checked"'%>
+        <%} else {%>
+        <%    b = 'checked="checked"'%>
+        <%}%>
+
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" value="male" <%=b%>>
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender" value="female" <%=a%>>
+          <br>
+          <button type="submit" value="Submit">Update</button>
+          <button type="reset" value="Reset">Cancel</button>
+        <br>
+      </form> 
+
+</body>
+</html> 

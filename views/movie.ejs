@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Movie</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<%active0 = ""%>
+<%active1 = ""%>
+<%active2 = "active"%>
+<%active3 = ""%>
+<%-include('partial/navbar')%>
+<body style="margin-left: 40px;">
+
+<h1>List Movies</h1>
+<a href="/movies/add">
+<button type="button" class="btn btn-primary">Add Movie</button></a>
+
+<table style="width:80%" class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th>Movie</th>
+      <th>Released Year</th>
+      <th>Genre</th>
+      <th>Production House</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <%for (let i=0; i<data.length; i++){ %>
+    <tr>
+      <td><%=data[i].name %></td>
+      <td><%=data[i].released_year%></td>
+      <td><%=data[i].genre%></td>
+      <%let a = data[i].ProductionHOuse%>
+      <%if (a!==null){%>
+      <td><%=a.name_prodHouse%></td>
+      <%} else {%>
+      <td><%='unknown'%></td>  
+      <%}%>
+      <td>
+        <a href="/movies/edit/<%=data[i].id%>">
+          <button type="button">Edit</button></a>
+        <a href="/movies/delete/<%=data[i].id%>">
+          <button type="button">Delete</button></a>
+          <a href="/movies/addCast/<%=data[i].id%>">
+            <button type="button">Add Cast</button></a>
+      </td>
+    </tr>
+    <%}%>
+
+  </table> 
+
+</body>
+</html> 

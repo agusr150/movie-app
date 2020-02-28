@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add movie</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<%active0 = ""%>
+<%active1 = ""%>
+<%active2 = "active"%>
+<%active3 = ""%>
+<%-include('partial/navbar')%>
+
+<body style="margin-left: 40px;">
+    <%let searchData = ''%>
+    <%for (let i=0; i<data.length; i++){%>
+        <%if(data[i].id === searchId){%>
+          <%  searchData = data[i]%>
+        <%}%>
+    <%}%>
+    <form action="/movies/edit/<%=searchData.id%>" method="POST">
+        <label for="fname">Name:</label><br>
+        <input type="text" id="fname" name="fname" value="<%=searchData.name%>"><br>
+        <label for="year">Released Year:</label><br>
+        <input type="text" id="year" name="year" value="<%=searchData.released_year%>"><br>
+        <label for="genre">Genre:</label><br>
+          <select id="genre" name="genre" >
+            <option><%=searchData.genre%></option>
+            <option>animation</option>
+            <option>comedy</option>
+            <option>drama</option>
+            <option>horor</option>
+            <option>religious</option>
+            <option>thriller</option>
+          </select>
+          <br>
+          <label for="prodHouse">Production House :</label><br>
+          <select id="prodHouse" name="prodHouse">
+          <%let a = searchData.ProductionHOuse%>
+                <%if (a!==null){%>
+                <option > <%=a.name_prodHouse%></option>
+                    <%} else {%>
+                <option><%='unknown'%></option>  
+                    <%}%>
+            <%for (let i=0; i<prodHouse.length; i++){%>
+                <option><%=prodHouse[i].name_prodHouse%></option>                
+              <%}%>
+            </select>
+
+
+          <br>
+          <button type="submit" value="Submit">Update</button>
+          <button type="reset" value="Reset">Cancel</button>
+        
+
+      </form> 
+
+</body>
+</html> 

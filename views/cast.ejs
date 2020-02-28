@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cast</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<%active0 = ""%>
+<%active1 = ""%>
+<%active2 = ""%>
+<%active3 = "active"%>
+<%-include('partial/navbar')%>
+<body style="margin-left: 40px;">
+
+<h1>Casts List</h1>
+<a href="/casts/add">
+<button type="button" class="btn btn-primary">Add Cast</button></a>
+
+<table style="width:80%" class="table table-bordered">
+    <thead class="thead-light">
+    <tr>
+      <th>Name</th>
+      <th>Birth Year</th>
+      <th>Phone Number</th>
+      <th>Gender</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <%for (let i=0; i<data.length; i++){ %>
+    <tr>
+      <td><%=data[i].getName() %></td>
+      <td><%=data[i].birth_year%></td>
+      <td><%=data[i].phone_number%></td>
+      <td><%=data[i].gender%></td>
+      <td>
+        <a href="/casts/edit/<%=data[i].id%>">
+          <button type="button">Edit</button></a>
+        <a href="/casts/delete/<%=data[i].id%>">
+          <button type="button">Delete</button></a>
+        <a href="/casts/movies/<%=data[i].id%>">
+          <button type="button">See Movies</button></a>
+      
+
+      </td>
+    </tr>
+    <%}%>
+
+  </table> 
+
+</body>
+</html> 
